@@ -21,6 +21,39 @@ public class Character {
 		this.mGUID = guid;
 	}
 	
+	public void generate() {
+		int num = 0;
+		while(true) {
+
+			System.out.println("캐릭터 이름 : ");
+			mName = scan.next();
+			
+			System.out.println("어떤 직업의 캐릭터를 생성하시겠습니까?");
+			System.out.println("1.마법사\n2.검술사\n3.궁수");
+			num = scan.nextInt();
+			
+			if(num==1)magic();
+			else if(num==2)fencer();
+			else if(num==3)archer();
+			else System.out.println("다시 입력해주세요.\n--------------");
+		}
+	}
+	
+	public void magic() {
+		Item item = new Item("magicStick","stick",10);
+		Skill skill = new Skill("magicPower","magic",100,200);
+		mItem.add(item);
+		mSkills.add(skill);
+	}
+	
+	public void fencer() {
+		
+	}
+	
+	public void archer() {
+		
+	}
+	
 	public void itemGenerate(Character character) {
 	
 		String name="", type="";

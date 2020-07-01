@@ -9,21 +9,23 @@ public class Character {
 	private int mLevel;
 	private long mGUID;
 	
-	private ArrayList<Item>mItem ;
+	private ArrayList<Item>mItems ;
 	private ArrayList<Skill>mSkills;
 	private Scanner scan = new Scanner(System.in);
 		
+	//ArrayList<Item> item,ArrayList<Skill> skill,
+	
 	public Character(String name, long guid) {
 		this.mName = name;
 		this.mLevel = 1;
-		this.mItem = new ArrayList<Item>();
+		this.mItems = new ArrayList<Item>();
 		this.mSkills = new ArrayList<Skill>();
 		this.mGUID = guid;
 	}
 	
-	public void generate() {
+	public void generate(String name) {
 		int num = 0;
-		while(true) {
+		while(num < 4) {
 
 			System.out.println("캐릭터 이름 : ");
 			mName = scan.next();
@@ -42,57 +44,29 @@ public class Character {
 	public void magic() {
 		Item item = new Item("magicStick","stick",10);
 		Skill skill = new Skill("magicPower","magic",100,200);
-		mItem.add(item);
+		mItems.add(item);
 		mSkills.add(skill);
 	}
 	
 	public void fencer() {
-		
+		Item item = new Item("fencerSword","sword",10);
+		Skill skill = new Skill("swordPower","fencing",200,100);
+		mItems.add(item);
+		mSkills.add(skill);
 	}
 	
 	public void archer() {
-		
+		Item item = new Item("archerBow","bow",10);
+		Skill skill = new Skill("archerPower","bow",200,100);
+		mItems.add(item);
+		mSkills.add(skill);
 	}
 	
-//	public void itemGenerate(Character character) {
-//	
-//		String name="", type="";
-//		int buildUpCount=0;
+//	public boolean creatItem(String name, String skill, int bildup) {
 //		
+//		mItems.add()
 //		
-//		System.out.print("캐릭터 이름 : ");
-//		character.mName = scan.next();
-//		//System.out.println("캐릭터 레벨 : " + character.mLevel);
-//		System.out.println("사용할 아이템 속성을 입력해 주세요.");
-//		System.out.print("아이템 이름 : ");
-//		name = scan.next();
-//		System.out.print("아이템 종류(무기인가 옷인가 등) : ");
-//		type = scan.next();
-//		System.out.print("강화할 수 있는 횟수 : ");
-//		buildUpCount = scan.nextInt();
-//		
-//		Item item = new Item(name, type, buildUpCount);
-//		character.mItem.add(item);
+//		return true;
 //	}
-//	
-//	public void skillGenerate(Character character) {
-//		
-//		String name="", type="";
-//		int hp=0, np = 0;
-//		
-//		
-//		System.out.print("스킬 이름 : ");
-//		name = scan.next();
-//		System.out.print("스킬 종류 : ");
-//		type = scan.next();
-//		System.out.print("hp : ");
-//		hp = scan.nextInt();
-//		System.out.print("np : ");
-//		np = scan.nextInt();
-//		
-//		Skill skills = new Skill(name,type,hp,np);
-//		character.mSkills.add(skills);
-//	}
-//	
-
+	
 }

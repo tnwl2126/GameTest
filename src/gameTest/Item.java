@@ -10,4 +10,6 @@ public class Item {
 		mType = type;
 		mBuildUpCount = buildUpCount;
 	}
+	
+	
 }

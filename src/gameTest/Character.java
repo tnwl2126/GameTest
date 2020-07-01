@@ -34,33 +34,33 @@ public class Character {
 			System.out.println("1.마법사\n2.검술사\n3.궁수");
 			num = scan.nextInt();
 			
-			if(num==1)magic();
-			else if(num==2)fencer();
-			else if(num==3)archer();
-			else System.out.println("다시 입력해주세요.\n--------------");
+//			if(num==1)magic();
+//			else if(num==2)fencer();
+//			else if(num==3)archer();
+//			else System.out.println("다시 입력해주세요.\n--------------");
 		}
 	}
 	
-	public void magic() {
-		Item item = new Item("magicStick","stick",10);
-		Skill skill = new Skill("magicPower","magic",100,200);
-		mItems.add(item);
-		mSkills.add(skill);
-	}
-	
-	public void fencer() {
-		Item item = new Item("fencerSword","sword",10);
-		Skill skill = new Skill("swordPower","fencing",200,100);
-		mItems.add(item);
-		mSkills.add(skill);
-	}
-	
-	public void archer() {
-		Item item = new Item("archerBow","bow",10);
-		Skill skill = new Skill("archerPower","bow",200,100);
-		mItems.add(item);
-		mSkills.add(skill);
-	}
+//	public void magic() {
+//		Item item = new Item("magicStick","stick",10);
+//		Skill skill = new Skill("magicPower","magic",100,200);
+//		mItems.add(item);
+//		mSkills.add(skill);
+//	}
+//	
+//	public void fencer() {
+//		Item item = new Item("fencerSword","sword",10);
+//		Skill skill = new Skill("swordPower","fencing",200,100);
+//		mItems.add(item);
+//		mSkills.add(skill);
+//	}
+//	
+//	public void archer() {
+//		Item item = new Item("archerBow","bow",10);
+//		Skill skill = new Skill("archerPower","bow",200,100);
+//		mItems.add(item);
+//		mSkills.add(skill);
+//	}
 	
 //	public boolean creatItem(String name, String skill, int bildup) {
 //		

@@ -16,10 +16,10 @@ public class ItemManager {
 	}
 	
 	public Item creatItem(int code, int count) {
-		Object ob = new Object();
+		Object itemObject = itemMap.get(code);
 		
-		if(itemMap.get(code) == null) return null;		
-		else return Item.creatItem((String)itemMap.get(code), count,getGuid());
+		if(itemObject == null) return null;		
+		else return Item.creatItem((String)itemObject, count,getGuid());
 	}
 	
 	public long getGuid() {		

@@ -7,7 +7,7 @@ public class ItemManager {
 	public static long item_GUID = 1000000000L;
 	// public static long skill_GUID = 2000000000L;
 	
-	private HashMap itemMap = new HashMap();
+	private HashMap<Integer, String> itemMap = new HashMap<>();
 	
 	public ItemManager() {	
 		itemMap.put(ItemDef.MAGIC_STICK, "magic stick");
@@ -28,17 +28,6 @@ public class ItemManager {
 		
 		itemMap.put(ItemDef.PET, "pet");
 	}
-	
-	/*
-	 * 
-	 * 
-	
-	public static int SHORT_HAIR = 2004;
-	public static int LONG_HAIR = 2005;	
-	 * 
-	 * 
-	 * 
-	 * */
 	
 	public Item creatItem(int code, int buidUpCount) {
 		

@@ -15,29 +15,43 @@ public class Character {
 	private Scanner scan = new Scanner(System.in);
 	private ItemManager itemManager;
 	
-	private HashMap charHashMap = new HashMap();
-		
-	//ArrayList<Item> item,ArrayList<Skill> skill,
+	private HashMap<String, Long> charHashMap = new HashMap<>();
+	private Object charObject = new Object();
 	
 	public Character(String name, long guid) {
 		
+		itemManager = new ItemManager();
 		
+		checkName(name,guid);
+
+		mName = name;
+		mLevel = 1;
+		mItems = new ArrayList<Item>();
+		mSkills = new ArrayList<Skill>();
+		mGUID = guid;
 		
-		this.mName = name;
-		this.mLevel = 1;
-		this.mItems = new ArrayList<Item>();
-		this.mSkills = new ArrayList<Skill>();
-		this.mGUID = guid;
+	}
 		
-		generate(name);
+	public void checkName(String name, long guid) {
+		charObject = charHashMap.get(name);
+		int num = 0;
+		if(charObject == null) {
+			charHashMap.put(name, guid);
+			generate();
+		}
+		else {
+		
+			System.out.println("중복된 이름의 캐릭터가 있습니다.");
+			System.out.println("1.캐릭터 정보 수정\n2.정보 수정 안함");
+			num = scan.nextInt();
+			// if(num==1)
+		}
+		
 	}
 	
-	public void generate(String name) {
+	public void generate() {
 		int num = 0;
 		while(num < 4) {
-
-			System.out.println("캐릭터 이름 : ");
-			mName = scan.next();
 			
 			System.out.println("어떤 직업을 가진 캐릭터를 생성하시겠습니까?");
 			System.out.println("1.마법사\n2.검술사\n3.궁수");
@@ -52,18 +66,27 @@ public class Character {
 	
 	public void magic() {
 		creatItem(1000,10);
+		creatItem(2000,7);
+		creatItem(2002,7);
+		creatItem(3000,8);
 //		Skill skill = new Skill("magicPower","magic",100,200);
 //		mSkills.add(skill);
 	}
 	
 	public void fencer() {
 		creatItem(1001,10);
+		creatItem(2001,7);
+		creatItem(2003,7);
+		creatItem(2005,5);
 //		Skill skill = new Skill("swordPower","fencing",200,100);
 //		mSkills.add(skill);
 	}
 	
 	public void archer() {
 		creatItem(1002,10);
+		creatItem(2000,7);
+		creatItem(2001,7);
+		creatItem(2004,5);
 //		Skill skill = new Skill("archerPower","bow",200,100);
 //		mSkills.add(skill);
 	}

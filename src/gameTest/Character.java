@@ -2,6 +2,7 @@ package gameTest;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.HashMap;
 
 public class Character {
 
@@ -12,61 +13,66 @@ public class Character {
 	private ArrayList<Item>mItems ;
 	private ArrayList<Skill>mSkills;
 	private Scanner scan = new Scanner(System.in);
+	private ItemManager itemManager;
+	
+	private HashMap charHashMap = new HashMap();
 		
 	//ArrayList<Item> item,ArrayList<Skill> skill,
 	
 	public Character(String name, long guid) {
+		
+		
+		
 		this.mName = name;
 		this.mLevel = 1;
 		this.mItems = new ArrayList<Item>();
 		this.mSkills = new ArrayList<Skill>();
 		this.mGUID = guid;
+		
+		generate(name);
 	}
 	
 	public void generate(String name) {
 		int num = 0;
 		while(num < 4) {
 
-			System.out.println("Ä³¸¯ÅÍ ÀÌ¸§ : ");
+			System.out.println("ìºë¦­í„° ì´ë¦„ : ");
 			mName = scan.next();
 			
-			System.out.println("¾î¶² Á÷¾÷ÀÇ Ä³¸¯ÅÍ¸¦ »ý¼ºÇÏ½Ã°Ú½À´Ï±î?");
-			System.out.println("1.¸¶¹ý»ç\n2.°Ë¼ú»ç\n3.±Ã¼ö");
+			System.out.println("ì–´ë–¤ ì§ì—…ì„ ê°€ì§„ ìºë¦­í„°ë¥¼ ìƒì„±í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
+			System.out.println("1.ë§ˆë²•ì‚¬\n2.ê²€ìˆ ì‚¬\n3.ê¶ìˆ˜");
 			num = scan.nextInt();
 			
-//			if(num==1)magic();
-//			else if(num==2)fencer();
-//			else if(num==3)archer();
-//			else System.out.println("´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.\n--------------");
+			if(num==1)magic();
+			else if(num==2)fencer();
+			else if(num==3)archer();
+			else System.out.println("ì¡´ìž¬í•˜ì§€ ì•ŠëŠ” ë²ˆí˜¸ ìž…ë‹ˆë‹¤.\n--------------");
 		}
 	}
 	
-//	public void magic() {
-//		Item item = new Item("magicStick","stick",10);
+	public void magic() {
+		creatItem(1000,10);
 //		Skill skill = new Skill("magicPower","magic",100,200);
-//		mItems.add(item);
 //		mSkills.add(skill);
-//	}
-//	
-//	public void fencer() {
-//		Item item = new Item("fencerSword","sword",10);
-//		Skill skill = new Skill("swordPower","fencing",200,100);
-//		mItems.add(item);
-//		mSkills.add(skill);
-//	}
-//	
-//	public void archer() {
-//		Item item = new Item("archerBow","bow",10);
-//		Skill skill = new Skill("archerPower","bow",200,100);
-//		mItems.add(item);
-//		mSkills.add(skill);
-//	}
+	}
 	
-//	public boolean creatItem(String name, String skill, int bildup) {
-//		
-//		mItems.add()
-//		
-//		return true;
-//	}
+	public void fencer() {
+		creatItem(1001,10);
+//		Skill skill = new Skill("swordPower","fencing",200,100);
+//		mSkills.add(skill);
+	}
+	
+	public void archer() {
+		creatItem(1002,10);
+//		Skill skill = new Skill("archerPower","bow",200,100);
+//		mSkills.add(skill);
+	}
+	
+	public boolean creatItem(int code, int count) {
+		
+		mItems.add(itemManager.creatItem(code, count));
+		
+		return true;
+	}
 	
 }
